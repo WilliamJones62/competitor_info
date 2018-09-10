@@ -1,0 +1,217 @@
+<%= form_with(model: competitor, local: true) do |form| %>
+  <% if competitor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(competitor.errors.count, "error") %> prohibited this competitor from being saved:</h2>
+
+      <ul>
+      <% competitor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rep %>
+    <%= form.text_field :rep, id: :competitor_rep %>
+  </div>
+
+  <div class="field">
+    <%= form.label :competitor %>
+    <%= form.text_field :competitor, id: :competitor_competitor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comp_type %>
+    <%= form.text_field :comp_type, id: :competitor_comp_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dart_mkt %>
+    <%= form.text_field :dart_mkt, id: :competitor_dart_mkt %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip %>
+    <%= form.text_field :zip, id: :competitor_zip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direct %>
+    <%= form.check_box :direct, id: :competitor_direct %>
+  </div>
+
+  <div class="field">
+    <%= form.label :effective %>
+    <%= form.date_select :effective, id: :competitor_effective %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category, id: :competitor_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sub_category %>
+    <%= form.text_field :sub_category, id: :competitor_sub_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :competitor_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brand %>
+    <%= form.text_field :brand, id: :competitor_brand %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sub_brand %>
+    <%= form.text_field :sub_brand, id: :competitor_sub_brand %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uom %>
+    <%= form.text_field :uom, id: :competitor_uom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight, id: :competitor_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :competitor_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_lb %>
+    <%= form.text_field :price_lb, id: :competitor_price_lb %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fresh %>
+    <%= form.check_box :fresh, id: :competitor_fresh %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sku %>
+    <%= form.text_field :sku, id: :competitor_sku %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dart_desc %>
+    <%= form.text_field :dart_desc, id: :competitor_dart_desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dart_price %>
+    <%= form.text_field :dart_price, id: :competitor_dart_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avg_price %>
+    <%= form.text_field :avg_price, id: :competitor_avg_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dart_uom %>
+    <%= form.text_field :dart_uom, id: :competitor_dart_uom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :list_price_var %>
+    <%= form.text_field :list_price_var, id: :competitor_list_price_var %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avg_price_var %>
+    <%= form.text_field :avg_price_var, id: :competitor_avg_price_var %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer %>
+    <%= form.text_field :customer, id: :competitor_customer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lb_in_reg %>
+    <%= form.text_field :lb_in_reg, id: :competitor_lb_in_reg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lb_in_sub_reg %>
+    <%= form.text_field :lb_in_sub_reg, id: :competitor_lb_in_sub_reg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lb_in_csa %>
+    <%= form.text_field :lb_in_csa, id: :competitor_lb_in_csa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :source %>
+    <%= form.text_field :source, id: :competitor_source %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delivery %>
+    <%= form.text_field :delivery, id: :competitor_delivery %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dart_delivery %>
+    <%= form.text_field :dart_delivery, id: :competitor_dart_delivery %>
+  </div>
+
+  <div class="field">
+    <%= form.label :abf %>
+    <%= form.check_box :abf, id: :competitor_abf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :waterchilled %>
+    <%= form.check_box :waterchilled, id: :competitor_waterchilled %>
+  </div>
+
+  <div class="field">
+    <%= form.label :send_all %>
+    <%= form.check_box :send_all, id: :competitor_send_all %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grade %>
+    <%= form.text_field :grade, id: :competitor_grade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :specs %>
+    <%= form.text_field :specs, id: :competitor_specs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :heritage %>
+    <%= form.check_box :heritage, id: :competitor_heritage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :breed %>
+    <%= form.text_field :breed, id: :competitor_breed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grass_fed %>
+    <%= form.check_box :grass_fed, id: :competitor_grass_fed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :organic %>
+    <%= form.check_box :organic, id: :competitor_organic %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

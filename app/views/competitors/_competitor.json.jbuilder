@@ -1,0 +1,2 @@
+json.extract! competitor, :id, :rep, :competitor, :comp_type, :dart_mkt, :zip, :direct, :effective, :category, :sub_category, :description, :brand, :sub_brand, :uom, :weight, :price, :price_lb, :fresh, :sku, :dart_desc, :dart_price, :avg_price, :dart_uom, :list_price_var, :avg_price_var, :customer, :lb_in_reg, :lb_in_sub_reg, :lb_in_csa, :source, :delivery, :dart_delivery, :abf, :waterchilled, :send_all, :grade, :specs, :heritage, :breed, :grass_fed, :organic, :created_at, :updated_at
+json.url competitor_url(competitor, format: :json)
