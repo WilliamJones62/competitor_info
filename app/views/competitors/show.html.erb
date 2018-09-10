@@ -1,204 +1,110 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Rep:</strong>
-  <%= @competitor.rep %>
-</p>
+<fieldset>
+  <legend><strong>Customer</strong></legend>
+  <p>
+    <strong>Sales rep:</strong>
+    <%= @competitor.rep %>
+    <strong>Created:</strong>
+    <%= display_date(@competitor.created_at) %>
+    <strong>Effective:</strong>
+    <%= display_effective_date(@competitor.created_at) %>
+    <strong>Dart mkt:</strong>
+    <%= @competitor.dart_mkt %>
+    <strong>Customer:</strong>
+    <%= @competitor.customer %>
+    <strong>Zip:</strong>
+    <%= @competitor.zip %>
+    <strong>Source:</strong>
+    <%= @competitor.source %>
+  </p>
+</fieldset>
 
-<p>
-  <strong>Competitor:</strong>
-  <%= @competitor.competitor %>
-</p>
+<fieldset>
+  <legend><strong>Competitor</strong></legend>
+  <p>
+    <strong>Competitor:</strong>
+    <%= @competitor.competitor %>
+    <strong>Type:</strong>
+    <%= @competitor.comp_type %>
+    <strong>Brand:</strong>
+    <%= @competitor.brand %>
+    <strong>Sub brand:</strong>
+    <%= @competitor.sub_brand %>
+  </p>
+</fieldset>
 
-<p>
-  <strong>Comp type:</strong>
-  <%= @competitor.comp_type %>
-</p>
+<fieldset>
+  <legend><strong>Product Description</strong></legend>
+  <p>
+    <strong>Category:</strong>
+    <%= @competitor.category %>
+    <strong>Sub category:</strong>
+    <%= @competitor.sub_category %>
+    <strong>Direct:</strong>
+    <%= human_boolean(@competitor.direct) %>
+    <strong>SKU:</strong>
+    <%= @competitor.sku %>
+    <strong>Description:</strong>
+    <%= @competitor.description %>
+    <strong>UOM:</strong>
+    <%= @competitor.uom %><br><br>
+    <strong>Weight:</strong>
+    <%= @competitor.weight %>
+    <strong>Price:</strong>
+    <%= @competitor.price %>
+    <strong>Price/lb:</strong>
+    <%= (@competitor.price / @competitor.weight).round(2) %>
+    <strong>Grade:</strong>
+    <%= @competitor.grade %>
+    <strong>Delivery:</strong>
+    <%= @competitor.delivery %>
+    <strong>Specs:</strong>
+    <%= @competitor.specs %><br><br>
+    <strong>Fresh:</strong>
+    <%= human_boolean(@competitor.fresh) %>
+    <strong>ABF:</strong>
+    <%= human_boolean(@competitor.abf) %>
+    <strong>Waterchilled:</strong>
+    <%= human_boolean(@competitor.waterchilled) %>
+    <strong>Send all:</strong>
+    <%= human_boolean(@competitor.send_all) %>
+    <strong>Heritage:</strong>
+    <%= human_boolean(@competitor.heritage) %>
+    <strong>Breed:</strong>
+    <%= @competitor.breed %>
+    <strong>Grass fed:</strong>
+    <%= human_boolean(@competitor.grass_fed) %>
+    <strong>Organic:</strong>
+    <%= human_boolean(@competitor.organic) %>
+  </p>
+</fieldset>
 
-<p>
-  <strong>Dart mkt:</strong>
-  <%= @competitor.dart_mkt %>
-</p>
+<fieldset>
+  <legend><strong>Dartagnan Equivalent</strong></legend>
+  <p>
+    <strong>Dart desc:</strong>
+    <%= @competitor.dart_desc %>
+    <strong>Dart price:</strong>
+    <%= @competitor.dart_price %>
+    <strong>Avg price:</strong>
+    <%= @competitor.avg_price %>
+    <strong>Dart UOM:</strong>
+    <%= @competitor.dart_uom %>
+    <strong>List price var:</strong>
+    <%= @competitor.list_price_var %><br><br>
+    <strong>Avg price var:</strong>
+    <%= @competitor.avg_price_var %>
+    <strong>Lb in reg:</strong>
+    <%= @competitor.lb_in_reg %>
+    <strong>Lb in sub reg:</strong>
+    <%= @competitor.lb_in_sub_reg %>
+    <strong>Lb in CBSA:</strong>
+    <%= @competitor.lb_in_csa %>
+    <strong>Dart delivery:</strong>
+    <%= @competitor.dart_delivery %>
+  </p>
+</fieldset><br><br>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @competitor.zip %>
-</p>
-
-<p>
-  <strong>Direct:</strong>
-  <%= @competitor.direct %>
-</p>
-
-<p>
-  <strong>Effective:</strong>
-  <%= @competitor.effective %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @competitor.category %>
-</p>
-
-<p>
-  <strong>Sub category:</strong>
-  <%= @competitor.sub_category %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @competitor.description %>
-</p>
-
-<p>
-  <strong>Brand:</strong>
-  <%= @competitor.brand %>
-</p>
-
-<p>
-  <strong>Sub brand:</strong>
-  <%= @competitor.sub_brand %>
-</p>
-
-<p>
-  <strong>Uom:</strong>
-  <%= @competitor.uom %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @competitor.weight %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @competitor.price %>
-</p>
-
-<p>
-  <strong>Price lb:</strong>
-  <%= @competitor.price_lb %>
-</p>
-
-<p>
-  <strong>Fresh:</strong>
-  <%= @competitor.fresh %>
-</p>
-
-<p>
-  <strong>Sku:</strong>
-  <%= @competitor.sku %>
-</p>
-
-<p>
-  <strong>Dart desc:</strong>
-  <%= @competitor.dart_desc %>
-</p>
-
-<p>
-  <strong>Dart price:</strong>
-  <%= @competitor.dart_price %>
-</p>
-
-<p>
-  <strong>Avg price:</strong>
-  <%= @competitor.avg_price %>
-</p>
-
-<p>
-  <strong>Dart uom:</strong>
-  <%= @competitor.dart_uom %>
-</p>
-
-<p>
-  <strong>List price var:</strong>
-  <%= @competitor.list_price_var %>
-</p>
-
-<p>
-  <strong>Avg price var:</strong>
-  <%= @competitor.avg_price_var %>
-</p>
-
-<p>
-  <strong>Customer:</strong>
-  <%= @competitor.customer %>
-</p>
-
-<p>
-  <strong>Lb in reg:</strong>
-  <%= @competitor.lb_in_reg %>
-</p>
-
-<p>
-  <strong>Lb in sub reg:</strong>
-  <%= @competitor.lb_in_sub_reg %>
-</p>
-
-<p>
-  <strong>Lb in csa:</strong>
-  <%= @competitor.lb_in_csa %>
-</p>
-
-<p>
-  <strong>Source:</strong>
-  <%= @competitor.source %>
-</p>
-
-<p>
-  <strong>Delivery:</strong>
-  <%= @competitor.delivery %>
-</p>
-
-<p>
-  <strong>Dart delivery:</strong>
-  <%= @competitor.dart_delivery %>
-</p>
-
-<p>
-  <strong>Abf:</strong>
-  <%= @competitor.abf %>
-</p>
-
-<p>
-  <strong>Waterchilled:</strong>
-  <%= @competitor.waterchilled %>
-</p>
-
-<p>
-  <strong>Send all:</strong>
-  <%= @competitor.send_all %>
-</p>
-
-<p>
-  <strong>Grade:</strong>
-  <%= @competitor.grade %>
-</p>
-
-<p>
-  <strong>Specs:</strong>
-  <%= @competitor.specs %>
-</p>
-
-<p>
-  <strong>Heritage:</strong>
-  <%= @competitor.heritage %>
-</p>
-
-<p>
-  <strong>Breed:</strong>
-  <%= @competitor.breed %>
-</p>
-
-<p>
-  <strong>Grass fed:</strong>
-  <%= @competitor.grass_fed %>
-</p>
-
-<p>
-  <strong>Organic:</strong>
-  <%= @competitor.organic %>
-</p>
-
-<%= link_to 'Edit', edit_competitor_path(@competitor) %> |
-<%= link_to 'Back', competitors_path %>
+<%= link_to 'Edit', edit_competitor_path(@competitor) %>
+<%= link_to 'List', competitors_path %>

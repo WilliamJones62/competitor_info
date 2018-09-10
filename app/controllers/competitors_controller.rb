@@ -1,14 +1,13 @@
 class CompetitorsController < ApplicationController
   before_action :set_competitor, only: [:show, :edit, :update, :destroy]
+  before_action :build_dropdown_lists, only: [:new, :edit]
 
   # GET /competitors
-  # GET /competitors.json
   def index
     @competitors = Competitor.all
   end
 
   # GET /competitors/1
-  # GET /competitors/1.json
   def show
   end
 
@@ -22,42 +21,34 @@ class CompetitorsController < ApplicationController
   end
 
   # POST /competitors
-  # POST /competitors.json
   def create
-    @competitor = Competitor.new(competitor_params)
+    @competitor = Competitor.new(@cp)
 
     respond_to do |format|
       if @competitor.save
         format.html { redirect_to @competitor, notice: 'Competitor was successfully created.' }
-        format.json { render :show, status: :created, location: @competitor }
       else
         format.html { render :new }
-        format.json { render json: @competitor.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /competitors/1
-  # PATCH/PUT /competitors/1.json
   def update
     respond_to do |format|
-      if @competitor.update(competitor_params)
+      if @competitor.update(@cp)
         format.html { redirect_to @competitor, notice: 'Competitor was successfully updated.' }
-        format.json { render :show, status: :ok, location: @competitor }
       else
         format.html { render :edit }
-        format.json { render json: @competitor.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /competitors/1
-  # DELETE /competitors/1.json
   def destroy
     @competitor.destroy
     respond_to do |format|
       format.html { redirect_to competitors_url, notice: 'Competitor was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -65,6 +56,15 @@ class CompetitorsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_competitor
       @competitor = Competitor.find(params[:id])
+    end
+
+    # Build dropdown lists for input form
+    def build_dropdown_lists
+      @type = ['Broard line', 'Food', 'Meat', 'Custom cut']
+      @uom = ['LB', 'Each', 'Case']
+      @source = ['Vendor', 'Invoice', 'Verbal']
+      @delivery = ['Driver', 'Overnight']
+      @grade = ['Prime', 'Choice plus', 'Choice', 'Select', 'Grade A', 'Grade B']
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

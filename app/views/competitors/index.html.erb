@@ -2,50 +2,17 @@
 
 <h1>Competitors</h1>
 
-<table>
+<table class="mytable" class="display" cellspacing="0" >
   <thead>
     <tr>
       <th>Rep</th>
       <th>Competitor</th>
-      <th>Comp type</th>
-      <th>Dart mkt</th>
-      <th>Zip</th>
-      <th>Direct</th>
-      <th>Effective</th>
-      <th>Category</th>
-      <th>Sub category</th>
-      <th>Description</th>
-      <th>Brand</th>
-      <th>Sub brand</th>
-      <th>Uom</th>
-      <th>Weight</th>
-      <th>Price</th>
-      <th>Price lb</th>
-      <th>Fresh</th>
       <th>Sku</th>
-      <th>Dart desc</th>
-      <th>Dart price</th>
-      <th>Avg price</th>
-      <th>Dart uom</th>
-      <th>List price var</th>
-      <th>Avg price var</th>
       <th>Customer</th>
-      <th>Lb in reg</th>
-      <th>Lb in sub reg</th>
-      <th>Lb in csa</th>
-      <th>Source</th>
-      <th>Delivery</th>
-      <th>Dart delivery</th>
-      <th>Abf</th>
-      <th>Waterchilled</th>
-      <th>Send all</th>
-      <th>Grade</th>
-      <th>Specs</th>
-      <th>Heritage</th>
-      <th>Breed</th>
-      <th>Grass fed</th>
-      <th>Organic</th>
-      <th colspan="3"></th>
+      <th>Created</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
@@ -54,47 +21,12 @@
       <tr>
         <td><%= competitor.rep %></td>
         <td><%= competitor.competitor %></td>
-        <td><%= competitor.comp_type %></td>
-        <td><%= competitor.dart_mkt %></td>
-        <td><%= competitor.zip %></td>
-        <td><%= competitor.direct %></td>
-        <td><%= competitor.effective %></td>
-        <td><%= competitor.category %></td>
-        <td><%= competitor.sub_category %></td>
-        <td><%= competitor.description %></td>
-        <td><%= competitor.brand %></td>
-        <td><%= competitor.sub_brand %></td>
-        <td><%= competitor.uom %></td>
-        <td><%= competitor.weight %></td>
-        <td><%= competitor.price %></td>
-        <td><%= competitor.price_lb %></td>
-        <td><%= competitor.fresh %></td>
         <td><%= competitor.sku %></td>
-        <td><%= competitor.dart_desc %></td>
-        <td><%= competitor.dart_price %></td>
-        <td><%= competitor.avg_price %></td>
-        <td><%= competitor.dart_uom %></td>
-        <td><%= competitor.list_price_var %></td>
-        <td><%= competitor.avg_price_var %></td>
         <td><%= competitor.customer %></td>
-        <td><%= competitor.lb_in_reg %></td>
-        <td><%= competitor.lb_in_sub_reg %></td>
-        <td><%= competitor.lb_in_csa %></td>
-        <td><%= competitor.source %></td>
-        <td><%= competitor.delivery %></td>
-        <td><%= competitor.dart_delivery %></td>
-        <td><%= competitor.abf %></td>
-        <td><%= competitor.waterchilled %></td>
-        <td><%= competitor.send_all %></td>
-        <td><%= competitor.grade %></td>
-        <td><%= competitor.specs %></td>
-        <td><%= competitor.heritage %></td>
-        <td><%= competitor.breed %></td>
-        <td><%= competitor.grass_fed %></td>
-        <td><%= competitor.organic %></td>
+        <td><%= display_date(competitor.created_at) %></td>
         <td><%= link_to 'Show', competitor %></td>
         <td><%= link_to 'Edit', edit_competitor_path(competitor) %></td>
-        <td><%= link_to 'Destroy', competitor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', competitor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
