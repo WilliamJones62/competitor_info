@@ -11,29 +11,24 @@
     </div>
   <% end %>
 
-  <fieldset>
-    <legend><strong>Customer</strong></legend>
-    <p>
-      <table>
-        <thead>
-          <tr>
-            <th> <%= form.label :rep, "Sales rep" %> </th>
-            <th> <%= form.label :customer, "Customer" %> </th>
-            <th> <%= form.label :zip, "Zip" %> </th>
-            <th> <%= form.label :source, "Source" %> </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td> <%= form.text_field :rep, id: :competitor_rep %> </td>
-            <td> <%= form.text_field :customer, id: :competitor_customer %> </td>
-            <td> <%= form.text_field :zip, id: :competitor_zip %> </td>
-            <td> <%= form.select :source, @source, {}, {:value => params[:source], :id => "competitor_source"} %> </td>
-          </tr>
-        </tbody>
-      </table>
-    </p>
-  </fieldset>
+  <table id="customer">
+    <thead>
+      <tr>
+        <th> <%= form.label :rep, "Sales rep" %> </th>
+        <th> <%= form.label :customer, "Customer" %> </th>
+        <th> <%= form.label :zip, "Zip" %> </th>
+        <th> <%= form.label :source, "Source" %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= form.text_field :rep, id: :competitor_rep %> </td>
+        <td> <%= form.text_field :customer, id: :competitor_customer %> </td>
+        <td> <%= form.text_field :zip, id: :competitor_zip %> </td>
+        <td> <%= form.select :source, @source, {}, {:value => params[:source], :id => "competitor_source"} %> </td>
+      </tr>
+    </tbody>
+  </table>
 
   <fieldset>
     <legend><strong>Competitor</strong></legend>
@@ -71,42 +66,29 @@
             <th> <%= form.label :sku, "SKU" %> </th>
             <th> <%= form.label :description %> </th>
             <th> <%= form.label :uom, "UOM" %> </th>
+            <th> <%= form.label :weight %> </th>
+            <th> <%= form.label :price%> </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td> <%= form.text_field :category, id: :competitor_category %> </td>
-            <td> <%= form.text_field :sub_category, id: :competitor_sub_category %> </td>
+            <td> <%= form.text_field :category, size: 10, id: :competitor_category %> </td>
+            <td> <%= form.text_field :sub_category, size: 10, id: :competitor_sub_category %> </td>
             <td> <%= form.check_box :direct, id: :competitor_direct %> </td>
-            <td> <%= form.text_field :sku, id: :sku %> </td>
-            <td> <%= form.text_field :description, id: :competitor_description %> </td>
+            <td> <%= form.text_field :sku, size: 10, id: :sku %> </td>
+            <td> <%= form.text_field :description, size: 15, id: :competitor_description %> </td>
             <td> <%= form.select :uom, @uom, {}, {:value => params[:uom], :id => "competitor_UOM"} %> </td>
+            <td> <%= form.number_field :weight, min: 0, max: 10, id: :competitor_weight, :step => 0.1 %> </td>
+            <td> <%= form.number_field :price, min: 0, max: 10, id: :competitor_price, :step => 0.01 %> </td>
           </tr>
         </tbody>
       </table>
       <table>
         <thead>
           <tr>
-            <th> <%= form.label :weight %> </th>
-            <th> <%= form.label :price%> </th>
             <th> <%= form.label :grade %> </th>
             <th> <%= form.label :delivery %> </th>
             <th> <%= form.label :specs %> </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td> <%= form.number_field :weight, id: :competitor_weight, :step => 0.1 %> </td>
-            <td> <%= form.number_field :price, id: :competitor_price, :step => 0.01 %> </td>
-            <td> <%= form.select :grade, @grade, {}, {:value => params[:grade], :id => "competitor_grade"} %> </td>
-            <td> <%= form.select :delivery, @delivery, {}, {:value => params[:delivery], :id => "competitor_delivery"} %> </td>
-            <td> <%= form.text_field :specs, id: :competitor_specs %> </td>
-          </tr>
-        </tbody>
-      </table>
-      <table>
-        <thead>
-          <tr>
             <th> <%= form.label :fresh %> </th>
             <th> <%= form.label :abf, "ABF" %> </th>
             <th> <%= form.label :waterchilled, "Water chilled" %> </th>
@@ -119,12 +101,15 @@
         </thead>
         <tbody>
           <tr>
+            <td> <%= form.select :grade, @grade, {}, {:value => params[:grade], :id => "competitor_grade"} %> </td>
+            <td> <%= form.select :delivery, @delivery, {}, {:value => params[:delivery], :id => "competitor_delivery"} %> </td>
+            <td> <%= form.text_field :specs, size: 15, id: :competitor_specs %> </td>
             <td> <%= form.check_box :fresh, id: :competitor_fresh %> </td>
             <td> <%= form.check_box :abf, id: :competitor_abf %> </td>
             <td> <%= form.check_box :waterchilled, id: :competitor_waterchilled %> </td>
             <td> <%= form.check_box :send_all, id: :competitor_send_all %> </td>
             <td> <%= form.check_box :heritage, id: :competitor_heritage %> </td>
-            <td> <%= form.text_field :breed, id: :competitor_breed %> </td>
+            <td> <%= form.text_field :breed, size: 10, id: :competitor_breed %> </td>
             <td> <%= form.check_box :grass_fed, id: :competitor_grass_fed %> </td>
             <td> <%= form.check_box :organic, id: :competitor_organic %> </td>
           </tr>
