@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180910160924) do
+ActiveRecord::Schema.define(version: 20180917142810) do
+
+  create_table "competitor_info_prices", force: :cascade do |t|
+    t.string "part_code"
+    t.date "sale_date"
+    t.string "csa_name"
+    t.string "div_name"
+    t.float "sales_dol"
+    t.float "average_price"
+    t.float "qty_sold"
+    t.string "price_id"
+    t.float "part_price"
+    t.string "uom"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "cbsa_name"
+    t.float "total_lbs"
+  end
 
   create_table "competitors", force: :cascade do |t|
     t.string "rep"

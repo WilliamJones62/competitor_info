@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  part_code: MyString
+  sale_date: 2018-09-17
+  cbsa_nameme: MyString
+  csa_name: MyString
+  div_name: MyString
+  sales_dol: 1.5
+  average_price: 1.5
+  tototal_lbs: 1.5
+  qty_sold: 1.5
+  price_id: MyString
+  part_price: 1.5
+  uom: MyString
+
+two:
+  part_code: MyString
+  sale_date: 2018-09-17
+  cbsa_nameme: MyString
+  csa_name: MyString
+  div_name: MyString
+  sales_dol: 1.5
+  average_price: 1.5
+  tototal_lbs: 1.5
+  qty_sold: 1.5
+  price_id: MyString
+  part_price: 1.5
+  uom: MyString

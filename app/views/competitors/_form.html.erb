@@ -14,7 +14,10 @@
   <table id="customer">
     <thead>
       <tr>
-        <th> <%= form.label :rep, "Sales rep" %> </th>
+        <% if current_user.email == "admin" %>
+          <th> <%= form.label :rep, "Rep" %> </th>
+          <th> <%= form.label :effective, "Effective date" %> </th>
+        <% end %>
         <th> <%= form.label :customer, "Customer" %> </th>
         <th> <%= form.label :zip, "Zip" %> </th>
         <th> <%= form.label :source, "Source" %> </th>
@@ -22,7 +25,10 @@
     </thead>
     <tbody>
       <tr>
-        <td> <%= form.text_field :rep, id: :competitor_rep %> </td>
+        <% if current_user.email == "admin" %>
+          <td> <%= form.text_field :rep, id: :competitor_rep %> </td>
+          <td> <%= form.date_select :effective, id: :competitor_effective %> </td>
+        <% end %>
         <td> <%= form.text_field :customer, id: :competitor_customer %> </td>
         <td> <%= form.text_field :zip, id: :competitor_zip %> </td>
         <td> <%= form.select :source, @source, {}, {:value => params[:source], :id => "competitor_source"} %> </td>

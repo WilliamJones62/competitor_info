@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Competitor List</h2>
+
+<%= form_with url: competitors_selected_path, local: true, method: 'get' do |f| %>
+  <%= f.label(:called_sku, 'SKU:') %>
+  <%= f.select(:called_sku, options_for_select(@sku, @selected_sku)) %>
+  <%= f.label(:called_region, 'Region:') %>
+  <%= f.select(:called_region, options_for_select(@region, @selected_region)) %>
+  <%= f.label(:called_sub_region, 'Sub-region:') %>
+  <%= f.select(:called_sub_region, options_for_select(@sub_region, @selected_sub_region)) %>
+  <%= f.label(:called_cbsa, 'CBSA:') %>
+  <%= f.select(:called_cbsa, options_for_select(@cbsa, @selected_cbsa)) %>
+  <%= f.label(:called_from, 'From:') %>
+  <%= f.date_select :called_from, id: :competitor_called_from %> </td>
+  <%= f.label(:called_to, 'To:') %>
+  <%= f.date_select :called_to, id: :competitor_called_to %> </td>
+  <%= f.submit "Change" %>
+<% end %>
+
+<br>
+
+<div id="listtable">
+  <div id="listdiv">
+    <table id="listtab" class="stripe" class="mytable" class="display" cellspacing="0" >
+      <thead>
+        <tr>
+          <th> Part </th>
+          <th> Description </th>
+          <th> Competitor </th>
+          <th> Direct? </th>
+          <th> Comp price </th>
+          <th> List price </th>
+          <th> Sale price </th>
+          <th> Comp var </th>
+          <th> Dart var </th>
+          <th> Comp delivery </th>
+          <th> Dart delivery </th>
+          <th> Dart UOM </th>
+          <th> Volume </th>
+          <th> Show </th>
+          <th> Edit </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @competitors.each do |c| %>
+          <tr>
+            <td><%= c.sku %></td>
+            <td><%= @average.part_desc %></td>
+            <td><%= c.competitor %></td>
+            <td><%= human_boolean(c.direct) %></td>
+            <td><%= c.price %></td>
+            <td><%= @average.list_price %></td>
+            <td><%= @average.average_price %></td>
+            <td><%= @average.list_price - c.price %></td>
+            <td><%= @average.list_price - @average.average_price %></td>
+            <td><%= c.delivery %></td>
+            <td><%= @average.delivery_method %></td>
+            <td><%= @average.uom %></td>
+            <td><%= @average.weight_lb_units %></td>
+            <td><%= link_to 'Show', c %></td>
+            <td><%= link_to 'Edit', edit_competitor_path(c) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
