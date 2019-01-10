@@ -1,14 +1,18 @@
   $(document).ready(function() {
 
-    $('.mytable').DataTable({
-      scrollY: "400px",
+    $('#listtab').DataTable({
+      scrollY: "43vh",
       scrollCollapse: true,
       paging: false,
       autoWidth: true,
       responsive: true,
       retrieve: true,
+      dom: 'Bfrtip',
       buttons: [
-        'print'
+        {
+        extend: 'print',
+        title: 'Not Called This Week'
+        }
       ]
     });
 

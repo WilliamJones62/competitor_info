@@ -3,66 +3,74 @@
 <h2>Competitor List</h2>
 
 <%= form_with url: competitors_selected_path, local: true, method: 'get' do |f| %>
-  <%= f.label(:called_sku, 'SKU:') %>
-  <%= f.select(:called_sku, options_for_select(@sku, @selected_sku)) %>
-  <%= f.label(:called_region, 'Region:') %>
-  <%= f.select(:called_region, options_for_select(@region, @selected_region)) %>
-  <%= f.label(:called_sub_region, 'Sub-region:') %>
-  <%= f.select(:called_sub_region, options_for_select(@sub_region, @selected_sub_region)) %>
-  <%= f.label(:called_cbsa, 'CBSA:') %>
-  <%= f.select(:called_cbsa, options_for_select(@cbsa, @selected_cbsa)) %>
-  <%= f.label(:called_from, 'From:') %>
-  <%= f.date_select :called_from, id: :competitor_called_from %> </td>
-  <%= f.label(:called_to, 'To:') %>
-  <%= f.date_select :called_to, id: :competitor_called_to %> </td>
-  <%= f.submit "Change" %>
+<table>
+  <thead>
+    <tr>
+      <th><%= f.label(:called_sku, 'SKU:') %></th>
+      <td><%= f.select :called_sku, $sku, {}, {:value => params[:sku], :id => "sku", :onChange=> ('skuLists()')} %> </td>
+      <th><%= f.label(:called_region, 'Region:') %></th>
+      <td><%= f.select :called_region, $region, {}, {:value => params[:region], :id => "region", :onChange=> ('skuLists()')} %> </td>
+      <th><%= f.label(:called_subregion, 'Sub-region:') %></th>
+      <td><%= f.select :called_subregion, $subregion, {}, {:value => params[:subregion], :id => "subregion", :onChange=> ('cbsas()')} %> </td>
+      <th><%= f.label(:called_cbsa, 'CBSA:') %></th>
+      <td><%= f.select :cbsa, $cbsa, {}, {:value => params[:cbsa], :id => "cbsa"} %> </td>
+      <th><%= f.label(:called_from, 'From:') %></th>
+      <th><%= f.date_select :called_from, id: :competitor_called_from %> </th>
+      <th><%= f.label(:called_to, 'To:') %></th>
+      <th><%= f.date_select :called_to, id: :competitor_called_to %> </th>
+      <th><%= f.submit "Change" %></th>
+    </tr>
+  </thead>
+</table>
 <% end %>
 
 <br>
 
-<div id="listtable">
-  <div id="listdiv">
-    <table id="listtab" class="stripe" class="mytable" class="display" cellspacing="0" >
-      <thead>
+<table id=listtab class="mytable" class="display" cellspacing="0" >
+  <thead>
+    <tr>
+      <th> Part </th>
+      <th> Description </th>
+      <th> Competitor </th>
+      <th> Direct? </th>
+      <th> Comp price </th>
+      <th> List price </th>
+      <th> Sale price </th>
+      <th> Comp var </th>
+      <th> Dart var </th>
+      <th> Comp delivery </th>
+      <th> Dart delivery </th>
+      <th> Dart UOM </th>
+      <th> Volume </th>
+      <th> Show </th>
+      <th> Edit </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @price_data %>
+      <% @competitors.each do |c| %>
         <tr>
-          <th> Part </th>
-          <th> Description </th>
-          <th> Competitor </th>
-          <th> Direct? </th>
-          <th> Comp price </th>
-          <th> List price </th>
-          <th> Sale price </th>
-          <th> Comp var </th>
-          <th> Dart var </th>
-          <th> Comp delivery </th>
-          <th> Dart delivery </th>
-          <th> Dart UOM </th>
-          <th> Volume </th>
-          <th> Show </th>
-          <th> Edit </th>
+          <td><%= c.sku %></td>
+          <td><%= @average.part_desc %></td>
+          <td><%= c.competitor %></td>
+          <td><%= human_boolean(c.direct) %></td>
+          <td><%= c.price %></td>
+          <td><%= @average.list_price %></td>
+          <td><%= @average.average_price %></td>
+          <td><%= @average.list_price - c.price %></td>
+          <td><%= @average.list_price - @average.average_price %></td>
+          <td><%= c.delivery %></td>
+          <td><%= @average.delivery_method %></td>
+          <td><%= @average.uom %></td>
+          <td><%= @average.weight_lb_units %></td>
+          <td><%= link_to 'Show', c %></td>
+          <td><%= link_to 'Edit', edit_competitor_path(c) %></td>
         </tr>
-      </thead>
-      <tbody>
-        <% @competitors.each do |c| %>
-          <tr>
-            <td><%= c.sku %></td>
-            <td><%= @average.part_desc %></td>
-            <td><%= c.competitor %></td>
-            <td><%= human_boolean(c.direct) %></td>
-            <td><%= c.price %></td>
-            <td><%= @average.list_price %></td>
-            <td><%= @average.average_price %></td>
-            <td><%= @average.list_price - c.price %></td>
-            <td><%= @average.list_price - @average.average_price %></td>
-            <td><%= c.delivery %></td>
-            <td><%= @average.delivery_method %></td>
-            <td><%= @average.uom %></td>
-            <td><%= @average.weight_lb_units %></td>
-            <td><%= link_to 'Show', c %></td>
-            <td><%= link_to 'Edit', edit_competitor_path(c) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<p id= "skus" hidden> <%= @allsku %> </p>
+<p id= "regions" hidden> <%= @allregion %> </p>
+<p id= "subregions" hidden> <%= @allsubregion %> </p>
+<p id= "cbsas" hidden> <%= @allcbsa %> </p>
